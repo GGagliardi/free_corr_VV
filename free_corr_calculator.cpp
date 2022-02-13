@@ -70,7 +70,7 @@ void Compute_free_corr(double am, int Tmax) {
   auto C_cont = [&Nc, &am](int t) -> double {
 
 		 
-		  auto f = [&am, &t, &Nc](double x) {  return (Nc*4.0/pow(M_PI,2))*exp(-2.0*t*sqrt( pow(x,2) + pow(am,2)))*pow(x,2)*( 1.0/3 + pow(am,2)/( 6.0*( pow(am,2) + pow(x,2))));};
+		  auto f = [&am, &t, &Nc](double x) {  return (Nc*2.0/pow(M_PI,2))*exp(-2.0*t*sqrt( pow(x,2) + pow(am,2)))*pow(x,2)*( 1.0/3 + pow(am,2)/( 6.0*( pow(am,2) + pow(x,2))));};
 
 		  return Gauss_Kronrod::integrate( f, 0, numeric_limits<double>::infinity(), 5,tol);
 		  
